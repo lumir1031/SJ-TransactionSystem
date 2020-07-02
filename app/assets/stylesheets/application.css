@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ .label-incoming {
+   text-align: left;
+ }
+
+ .label-outgoing {
+   text-align: right;
+ }
