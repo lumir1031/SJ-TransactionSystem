@@ -3,7 +3,38 @@
   <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" class="card-img-top" alt="Account Card">
   <div class="card-body">
     <h5 class="card-title"><%= @account.name %></h5>
-    <p class="card-text"></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div>
+      <% @current_transacions.each do |transaction| %>
+          <% if transaction.in_transactions(@account.wallet.id) %>
+            <p>in</p>
+            <p><%= transaction.amount %></p>
+          <% else %>
+            <p>out</p>
+            <p><%= transaction.amount %></p>
+          <% end %>
+      <% end %>
+    </div>
+    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#balanceModal">
+      Show Balance
+    </button>
+  </div>
+</div>
+
+<div class="modal fade" id="balanceModal" tabindex="-1" role="dialog" aria-labelledby="balanceModelLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="balanceModelLabel">Balance</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Your current balance is: $<%= @account.wallet.balance %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+      </div>
+    </div>
   </div>
 </div>
