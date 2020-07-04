@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_071712) do
+ActiveRecord::Schema.define(version: 2020_07_02_163353) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "token"
+    t.index ["token"], name: "index_accounts_on_token", unique: true
   end
 
   create_table "transactions", force: :cascade do |t|
