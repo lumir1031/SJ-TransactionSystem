@@ -3,15 +3,16 @@ class Wallet < ApplicationRecord
   #has_many :pay_transactions, through:
   #has_many :in_trasactions, class_name: "transaction", foreign_key: "to_wallet_id"
 
+  belongs_to :account
+
   def transactions
     Transaction.where("from_wallet_id = ? OR to_wallet_id = ?", self.id, self.id).order(:updated_at).map do |transaction|
       transaction.set_type(self.id)
     end
+  end
 
-    #do |transaction|
-    #  transaction.type = get_type(transaction.to_wallet_id)
-    #  transaction
-    #end
+  def deposit(amount)
+    self.balance = balance + amount
   end
 
   private
