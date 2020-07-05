@@ -15,8 +15,8 @@ class Wallet < ApplicationRecord
     self.balance = balance + amount
   end
 
-  private
-  def get_type(to_wallet_id)
-    self.id == to_wallet_id ? "INCOMING" : "OUTGOING"
+  def withdraw(amount)
+    self.balance = balance - amount
   end
+
 end
