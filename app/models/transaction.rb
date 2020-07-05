@@ -5,14 +5,6 @@ class Transaction < ApplicationRecord
 
   before_create :make_transaction
 
-  def out_transations(t)
-    self.from_wallet_id == t
-  end
-
-  def in_transactions(t)
-    self.to_wallet_id == t
-  end
-
   def set_type(wallet_id)
     @type = wallet_id == self.to_wallet_id ? "label-incoming" : "label-outgoing"
     self

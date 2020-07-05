@@ -12,11 +12,18 @@ class Wallet < ApplicationRecord
   end
 
   def deposit(amount)
+    raise "can't deposit money with negative value" if amount < 0
     self.balance = balance + amount
+    self.save
   end
 
   def withdraw(amount)
+    raise "can't withdraw money if it is over the balance" if amount > balance
+    raise "can't withdraw money with negative value" if amount < 0
     self.balance = balance - amount
+    self.save
   end
 
 end
+
+
