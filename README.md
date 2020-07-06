@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Transaction System for interview.
 
-Things you may want to cover:
+* Ruby version 2.6.5
+* Rails version 6.0.2
+* RSpec
+* FactoryBot
 
-* Ruby version
+### after clone the document
+* run `bundle install` to get all the gem you need
+* `rails db:migrate`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+contact: lumir1031@gmail.com
