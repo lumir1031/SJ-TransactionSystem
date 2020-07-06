@@ -7,8 +7,4 @@ Transaction System for interview.
 * RSpec
 * FactoryBot
 
-### after clone the document
-* run `bundle install` to get all the gem you need
-* `rails db:migrate`
-
 contact: lumir1031@gmail.com
