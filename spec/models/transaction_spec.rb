@@ -23,6 +23,7 @@ RSpec.describe Transaction, type: :model do
       expect(wallet_a.balance).to be 100
       expect(wallet_b.balance).to be 0
     end
+
     it "can not make a transaction with negative value" do
       wallet_a = create(:wallet, balance: 100)
       wallet_b = create(:wallet)
